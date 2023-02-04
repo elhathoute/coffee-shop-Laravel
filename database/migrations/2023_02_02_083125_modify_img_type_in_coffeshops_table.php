@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        // modifier 
         Schema::table('coffeshops', function (Blueprint $table) {
             //
+            $table->binary('photo')->change();
         });
     }
 
@@ -28,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('coffeshops', function (Blueprint $table) {
             //
+            $table->dropColumn('photo');
         });
     }
 };
