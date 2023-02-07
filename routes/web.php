@@ -22,7 +22,7 @@ Auth::routes();
 Route::resource('coffeShops', CoffeshopController::class);
 
 
-// Route::get('/home', [HomeController::class, "index"])->name("home");
+Route::get('/home', [CoffeshopController::class, "index"])->name("home");
 
 // Route::get('/store/{category?}/{item?}', function ($category=null,$item=null) {
 //     if(isset($category)){
@@ -50,4 +50,4 @@ Route::resource('coffeShops', CoffeshopController::class);
 
 // });
 
-// Route::resource('/posts', 'App\Http\Controllers\PostController');
+Route::resource('/posts', 'App\Http\Controllers\PostController')->only(['index','show']);

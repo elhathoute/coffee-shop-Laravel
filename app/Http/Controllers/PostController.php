@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        //dd=> is dump and die
+        // dd(Post::all());
+        return view('posts.index',[
+          'posts'=>Post::all()]);
     }
 
     /**
@@ -45,7 +49,15 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //GET WITH ID
+        // dd(Post::find($id));
+        return view('posts.show',[
+            'post'=>Post::find($id)
+        ]
+
+
+    );
+
     }
 
     /**

@@ -1,14 +1,6 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Coffe_shop</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-<body>
+@section('content')
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
@@ -16,7 +8,7 @@
                     <h2>Add Coffe_shop</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('coffeShops.index') }}"> Back</a>
+                    <a class="btn btn-white border border-dark" href="{{ route('coffeShops.index') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -64,10 +56,8 @@
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <button type="submit" class="btn btn-primary ms-3 mt-3 w-25"> <i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
             </div>
         </form>
     </div>
-</body>
-
-</html>
+@endsection

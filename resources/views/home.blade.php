@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
 
-            {{-- <div class=" card bg-success text-white text-center" role="alert">
+            <div class=" card bg-success text-white text-center" role="alert">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -22,7 +22,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 </div>
