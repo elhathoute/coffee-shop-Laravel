@@ -24,29 +24,19 @@ class CoffeshopController extends Controller
     public function store(Request $request)
     {
 
-        // $img=file_get_contents($request->file('photo')->getRealPath());
+        $file = $request->file('photo');
 
-        // $brand_image=$request->file('photo');
-        // $name_generator=hexdec(uniqid());
-        // $img_ext=strtolower($brand_image->getClientOriginalExtension());
-        // $img_name=$name_generator.'.'.$img_ext;
-        // $up_location='public/images/';
-        // $last_img=$up_location.$img_name;
 
-        // echo $last_img;
-
-        // $brand_image->move($up_location,$img_name);
-
-        // echo $brand_image;
-    //     $file = $request->file('photo');
-    //   echo  $file;
+       $file_path= $file->store('images');
+        dd($file_path);
 
         $request->validate([
             'nom' => 'required',
-           'photo' => 'required',
+            'photo' => 'required',
             'prix' => 'required',
             'description' => 'required',
         ]);
+
 
         Coffeshop::create($request->post());
 
