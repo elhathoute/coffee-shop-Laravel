@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content');
+
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
@@ -8,7 +9,7 @@
                     <h2>Edit coffe shop</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-white border border-dark" href="{{ route('coffeShops.index') }}" enctype="multipart/form-data"><i class="fa fa-arrow-left" aria-hidden="true"></a>
+                    <a class="btn btn-white border border-dark" href="{{ route('coffeShops.index') }}" enctype="multipart/form-data"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -31,15 +32,26 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                         <strong>Coffee_shop photo:</strong>
-                        <input type="file" name="photo" class="form-control"
+                        <input type="file" name="photo" id="input-image" class="form-control"
+                        accept="image/*"
                             value="{{ $coffeShop->photo }}">
                         @error('photo')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
+
                     </div>
+                </div>
+                <div class="col-6  text-center mt-2">
+                    <img id="preview-image" src="{{asset($coffeShop->photo) }}"
+                    style="
+                    width:50px;
+                       height:50px;
+                       text-align: center;
+                       border-radius: 100%;
+                    alt="Preview Image">
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
@@ -62,8 +74,8 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary mx-3 w-25 mt-3"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
-                <button type="submit" class="btn btn-primary mx-3 w-25 mt-3"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
             </div>
         </form>
     </div>
+
 @endsection

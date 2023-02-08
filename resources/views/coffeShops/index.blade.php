@@ -32,26 +32,40 @@
                     <th>photo</th>
                     <th>prix</th>
                     <th>description</th>
+                    <th>Ctegory</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 @foreach ($coffeShops as $coffeShop)
 
-                    <tr class="bg-dark text-white">
+                    <tr class="bg-dark text-white ">
 
                         <td>{{ $coffeShop->id }}</td>
                         <td>{{ $coffeShop->nom }}</td>
-                        <td>{{$coffeShop->photo }}</td>
+                        <td class="text-center bg-white border border-dark"><img style="
+                         width:50px;
+                            height:50px;
+                            text-align: center;
+                            border-radius: 100%; "
+                            class="border border-dark"
+                            src="{{asset($coffeShop->photo) }}" alt="" srcset=""></td>
                         <td>{{ $coffeShop->prix }}</td>
                         <td>{{ $coffeShop->description }}</td>
+                        @if(!empty( $coffeShop->nom_plat))
+                        <td >{{ $coffeShop->nom_plat }}</td>
+
+                        @else
+                        <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></td>
+                        @endif
                         <td ">
                             <form action="{{ route('coffeShops.destroy',$coffeShop->id) }}" method="Post">
                                 <div class="d-flex justify-content-evenly align-items-center mb-2">
+
                                 <a class="btn btn-warning"  href="{{ route('coffeShops.edit',$coffeShop->id) }}"><i class="fa fa-edit"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <a type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </div>
                             </form>
                         </td>
@@ -59,7 +73,7 @@
                     @endforeach
             </tbody>
         </table>
-        {!! $coffeShops->links() !!}
+        {!! $coffeShops->links('pagination::bootstrap-5') !!}
     </div>
 
     @endsection

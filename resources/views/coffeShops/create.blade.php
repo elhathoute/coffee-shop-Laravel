@@ -32,7 +32,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>coffe_shop photo:</strong>
-                        <input type="file" name="photo" class="form-control" placeholder="">
+                        <input type="file" name="photo" class="form-control" >
                         @error('photo')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -47,7 +47,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-2">
                     <div class="form-group">
                         <strong>coffe_shop description:</strong>
                         <input type="text" name="description" class="form-control" placeholder="Coffe_shop description">
@@ -55,6 +55,13 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <select class="form-select" size="3" aria-label="size 3 select example">
+
+                        <option value="1">One</option>
+
+                      </select>
                 </div>
                 <button type="submit" class="btn btn-primary ms-3 mt-3 w-25"> <i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
             </div>

@@ -13,9 +13,11 @@ use App\Http\Controllers\HomeController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('welcome');
+
+Route::get('/menu',[CoffeshopController::class ,'menu'])->name('menu');
+
+Route::get('/contact', function () {return view('contact');})->name('contact');
 
 Auth::routes();
 
@@ -23,6 +25,7 @@ Route::resource('coffeShops', CoffeshopController::class);
 
 
 Route::get('/home', [CoffeshopController::class, "index"])->name("home");
+
 
 // Route::get('/store/{category?}/{item?}', function ($category=null,$item=null) {
 //     if(isset($category)){
