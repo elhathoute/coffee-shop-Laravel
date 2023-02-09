@@ -1,3 +1,7 @@
+{{-- {{dd($breakfast)}}
+{{dd($lunch)}}
+{{dd($dinner)}} --}}
+
 @extends('layouts.navbar_footer')
 
 @section('content')
@@ -177,40 +181,42 @@
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+                    <h2>Cheap Featured Food</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
+
                     <div class="food-item">
                         <h2>Breakfast</h2>
-                        <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">$4.50</div>
+                        <img src="{{asset($breakfast->photo)}}" alt="">
+                        <div class="price">{{$breakfast->prix}}DH</div>
                         <div class="text-content">
-                            <h4>Kale Chips Art Party</h4>
-                            <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                            <h4>{{$breakfast->nom}}</h4>
+                            <p>{{$breakfast->description}}...</p>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-md-4">
                     <div class="food-item">
                         <h2>Lunch</h2>
-                        <img src="img/lunch_item.jpg" alt="">
-                        <div class="price">$7.50</div>
+                        <img src="{{asset($lunch->photo)}}" alt="">
+                        <div class="price">{{$lunch->prix}}DH</div>
                         <div class="text-content">
-                            <h4>Taiyaki Gastro Tousled</h4>
-                            <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                            <h4>{{$lunch->nom}}</h4>
+                            <p>{{$lunch->description}}...</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="food-item">
                         <h2>Dinner</h2>
-                        <img src="img/dinner_item.jpg" alt="">
-                        <div class="price">$12.50</div>
+                        <img src="{{asset($dinner->photo)}}" alt="">
+                        <div class="price">{{$dinner->prix}}DH</div>
                         <div class="text-content">
-                            <h4>Batch Squid Jean Shorts</h4>
-                            <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                            <h4>{{$dinner->nom}}</h4>
+                            <p>{{$dinner->description}}...</p>
                         </div>
                     </div>
                 </div>
@@ -220,7 +226,7 @@
 
 
 
-   
+
 
 
 

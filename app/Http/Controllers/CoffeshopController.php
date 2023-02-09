@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Coffeshop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Foreach_;
 
 class CoffeshopController extends Controller
 {
@@ -21,24 +22,41 @@ class CoffeshopController extends Controller
 
         ;
     }
+public function welcome(){
+        $menu_type_cheap = DB::table('coffeshops')
+            ->select('coffeshops.*')
+            ->orderBy('prix', 'asc')
+            ->get()
+            ->groupBy('menu_type');
 
+         return view('welcome',[
+          "breakfast"=> $menu_type_cheap["Breakfast"]["0"],
+          "lunch"=>$menu_type_cheap["Lunch"]["0"],
+          "dinner"=> $menu_type_cheap["Dinner"]["0"]
+         ]);
+
+}
 
     public function create()
     {
-        return view('coffeShops.create');
+        $type_plat = DB::table('types')->get();
+
+        return view('coffeShops.create', ["type_plat"=>$type_plat]);
     }
 
     public function store(Request $request)
     {
 
 
-
+        // dd($request->type_plat);
 
         $request->validate([
             'nom' => 'required',
             // 'photo' => 'required',
             'prix' => 'required',
             'description' => 'required',
+            'type_plat'=>'required',
+            'menu_type'=>'required'
         ]);
         $plat_image = $request->file('photo');
         $name_gen = hexdec(uniqid());
@@ -52,6 +70,8 @@ class CoffeshopController extends Controller
             'photo' => $last_image,
             'prix' =>$request->prix,
             'description' => $request->description,
+            'type_plat' => $request->type_plat,
+            'menu_type' => $request->menu_type,
         ]);
         // Coffeshop::create($request->post());
 
@@ -67,40 +87,44 @@ class CoffeshopController extends Controller
 
     public function edit(Coffeshop $coffeShop)
     {
-        return view('coffeShops.edit',compact('coffeShop'));
+        $type_plat = DB::table('types')->get();
+        return view('coffeShops.edit',["type_plat"=>$type_plat],compact('coffeShop'));
     }
 
     public function update(Request $request,Coffeshop $coffeShop)
     {
+
         $request->validate([
             'nom' => 'required',
-            // 'photo' => 'required',
+            'photo' => 'nullable',
             'prix' => 'required',
             'description' => 'required',
+            'type_plat'=>'required',
+            'menu_type'=>'required'
         ]);
-      if(isset($request->phot)){
-        $plat_image = $request->file('photo');
-        $name_gen = hexdec(uniqid());
-        $img_ext = strtolower($plat_image->getClientOriginalExtension());
-        $img_name = $name_gen.'.'.$img_ext;
-        $location = 'public/storage/images/';
-        $last_image=$location.$img_name;
-        $plat_image->move($location,$img_name);
+
+        if($request->hasfile('photo')){
+            $plat_image = $request->file('photo');
+            $name_gen = hexdec(uniqid());
+            $img_ext = strtolower($plat_image->getClientOriginalExtension());
+            $img_name = $name_gen.'.'.$img_ext;
+            $location = 'public/storage/images/';
+            $last_image=$location.$img_name;
+            $plat_image->move($location,$img_name);
+            $coffeShop->photo = $last_image;
+        }
+
+
 
         $coffeShop->fill([
             'nom' => $request->nom,
-            'photo' => $last_image,
+            'photo' => $coffeShop->photo,
             'prix' =>$request->prix,
             'description' => $request->description,
+            'type_plat' => $request->type_plat,
+            'menu_type' => $request->menu_type
             ])->save();
-    }else{
-        $coffeShop->fill([
-            'nom' => $request->nom,
-            'photo' => '',
-            'prix' =>$request->prix,
-            'description' => $request->description,
-            ])->save();
-    }
+
 
 
         return redirect()->route('coffeShops.index')->with('success','CoffeShop Has Been updated successfully.');

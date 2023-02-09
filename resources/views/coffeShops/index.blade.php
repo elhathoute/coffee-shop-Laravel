@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
                 {{-- alert --}}
                 @if ($message = Session::get('success'))
                         <div class="container mt-2">
@@ -33,6 +36,7 @@
                     <th>prix</th>
                     <th>description</th>
                     <th>Ctegory</th>
+                    <th>menu_type</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>
@@ -54,6 +58,7 @@
                         <td>{{ $coffeShop->description }}</td>
                         @if(!empty( $coffeShop->nom_plat))
                         <td >{{ $coffeShop->nom_plat }}</td>
+                        <td >{{ $coffeShop->menu_type }}</td>
 
                         @else
                         <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></td>
@@ -75,6 +80,7 @@
         </table>
         {!! $coffeShops->links('pagination::bootstrap-5') !!}
     </div>
+
 
     @endsection
 

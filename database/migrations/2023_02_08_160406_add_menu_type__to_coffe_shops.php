@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('coffe_shops', function (Blueprint $table) {
+        Schema::table('coffeshops', function (Blueprint $table) {
             //
+            $table->string('menu_type');
         });
     }
 
@@ -25,8 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('coffe_shops', function (Blueprint $table) {
+        Schema::table('coffeshops', function (Blueprint $table) {
             //
+            $table->dropColumn('menu_type');
         });
     }
 };

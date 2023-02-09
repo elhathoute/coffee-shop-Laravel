@@ -32,17 +32,19 @@
                                 <h2>Breakfast Menu</h2>
                                 <div id="owl-breakfast" class="owl-carousel owl-theme">
                                     @foreach ($menus as $menu)
-
+                                        @if($menu->menu_type=="Breakfast")
                                     <div class="item col-md-12">
                                         <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
+                                            <img src="{{asset($menu->photo) }}" alt="">
                                             <div class="price">{{($menu->prix)}}DH</div>
                                             <div class="text-content">
                                                 <h4> {{($menu->nom)}}</h4>
                                                 <p> {{($menu->description)}}...</p>
                                             </div>
+
                                         </div>
                                     </div>
+                                    @endif
                                     @endforeach
 
 
@@ -67,36 +69,21 @@
                             <div class="col-md-7">
                                 <h2>Lunch Menu</h2>
                                 <div id="owl-lunch" class="owl-carousel owl-theme">
+                                    @foreach ($menus as $menu)
+                                    @if($menu->menu_type=="Lunch")
                                     <div class="item col-md-12">
                                         <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$6.50</div>
+                                            <img src="{{asset($menu->photo) }}" alt="">
+                                            <div class="price">{{$menu->prix }}DH</div>
                                             <div class="text-content">
-                                                <h4>Mumble Ditch Corn</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                                <h4>{{$menu->nom }}</h4>
+                                                <p>{{$menu->description }}...</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$11.75</div>
-                                            <div class="text-content">
-                                                <h4>Wayfare Lomo Core</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$16.50</div>
-                                            <div class="text-content">
-                                                <h4>Taiyaki Gastro Tousled</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endif
+                                    @endforeach
+
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -125,36 +112,22 @@
                             <div class="col-md-7">
                                 <h2>Dinner Menu</h2>
                                 <div id="owl-dinner" class="owl-carousel owl-theme">
+                                    @foreach ($menus as $menu)
+                                    @if($menu->menu_type=="Dinner")
                                     <div class="item col-md-12">
                                         <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$8.25</div>
+                                            <img src="{{asset($menu->photo) }}" alt="">
+                                            <div class="price">{{$menu->prix}}DH</div>
                                             <div class="text-content">
-                                                <h4>Meal Apples Almonds</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                                <h4>{{$menu->nom }}</h4>
+                                                <p> {{$menu->dsecription}}...</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$12.50</div>
-                                            <div class="text-content">
-                                                <h4>Ditch Corn Art</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$16.00</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                   @endif
+                                   @endforeach
+
                                 </div>
                             </div>
                         </div>

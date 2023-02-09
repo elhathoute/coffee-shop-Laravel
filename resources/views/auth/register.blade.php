@@ -61,6 +61,13 @@
                             </div>
                         </div>
 
+
+                        {{-- <div class="row mb-3">
+                            <div class="col-md-6">
+                                <input hidden role="role" value="0" id="role" type="int" class="form-control border border-2 border-dark rounded-2 " >
+                            </div>
+                        </div> --}}
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4 text-center my-2">
                                 <button type="submit" class="btn btn-primary ">

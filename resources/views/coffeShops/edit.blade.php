@@ -73,6 +73,35 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                    <select name="type_plat" class="form-select" size="3" aria-label="size 3 select example">
+                         @foreach ( $type_plat as $type )
+
+
+                            <option value="{{$type->id}}" {{($coffeShop->type_plat==$type->id)? 'selected' : ''}} >{{$type->nom}}</option>
+                        @endforeach
+
+                      </select>
+                      @error('type_plat')
+                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                      @enderror
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                    <select name="menu_type" class="form-select" size="3" aria-label="size 3 select example">
+
+                        
+                        <option value="Breakfast" {{( $coffeShop->menu_type=="Breakfast")?'selected':''}} >Breakfast</option>
+                        <option value="Dinner" {{( $coffeShop->menu_type=="Dinner")?'selected':''}}>Dinner</option>
+                        <option value="Lunch" {{( $coffeShop->menu_type=="Lunch")?'selected':''}}>Lunch</option>
+
+
+
+                      </select>
+                      @error('menu_type')
+                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                      @enderror
+                </div>
                 <button type="submit" class="btn btn-primary mx-3 w-25 mt-3"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
             </div>
         </form>

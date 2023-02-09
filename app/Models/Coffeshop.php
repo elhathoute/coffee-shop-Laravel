@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Coffeshop extends Model
 {
     use HasFactory;
-    // protected $attributes = [
-    //     'photo' => ''
-    // ];
-    protected $fillable = ['nom', 'photo', 'prix','description'];
+
+    protected $fillable = ['nom', 'photo', 'prix','description','type_plat','menu_type'];
 }

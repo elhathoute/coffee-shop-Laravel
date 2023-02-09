@@ -56,12 +56,32 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <select class="form-select" size="3" aria-label="size 3 select example">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <select name="type_plat" class="form-select" size="3" aria-label="size 3 select example">
+                         @foreach ( $type_plat as $type )
 
-                        <option value="1">One</option>
+                        <option value="{{$type->id}}">{{$type->nom}}</option>
+                        @endforeach
 
                       </select>
+                      @error('type_plat')
+                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                      @enderror
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <select name="menu_type" class="form-select" size="3" aria-label="size 3 select example">
+
+
+                        <option value="Breakfast" selected>Breakfast</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Lunch">Lunch</option>
+
+
+                      </select>
+                      @error('menu_type')
+                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                      @enderror
                 </div>
                 <button type="submit" class="btn btn-primary ms-3 mt-3 w-25"> <i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
             </div>

@@ -40,8 +40,32 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{route('welcome')}}">Home</a></li>
                         <li><a href="{{route('menu')}}">Our Menus</a></li>
-
                         <li><a  href="{{route('contact')}}">Contact Us</a></li>
+                        @guest
+                        <li><a  href="{{route('login')}}">Login</a></li>
+                        <li><a  href="{{route('register')}}">Register</a></li>
+                        @endguest
+                        @auth
+                        @if(Auth::user()->role==1)
+                        <li><a ><i class="fa fa-user"></i>  {{Auth::user()->name}}</a></li>
+                        <li><a  href="{{route('home')}}">Dashboard</a></li>
+
+                        @else
+                        <li><a ><i class="fa fa-user"></i> {{Auth::user()->name}}</a></li>
+                        <li> <a  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                             {{ __('Logout') }}
+                         </a>
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                        </li>
+
+                         @endif
+                       @endauth
+
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
