@@ -33,7 +33,8 @@
                                 <div id="owl-breakfast" class="owl-carousel owl-theme">
                                     @foreach ($menus as $menu)
                                         @if($menu->menu_type=="Breakfast")
-                                    <div class="item col-md-12">
+                                        <a href="{{route('show',$menu->id)}}">
+                                        <div class="item col-md-12">
                                         <div class="food-item">
                                             <img src="{{asset($menu->photo) }}" alt="">
                                             <div class="price">{{($menu->prix)}}DH</div>
@@ -44,6 +45,8 @@
 
                                         </div>
                                     </div>
+                                </a>
+
                                     @endif
                                     @endforeach
 
@@ -71,6 +74,7 @@
                                 <div id="owl-lunch" class="owl-carousel owl-theme">
                                     @foreach ($menus as $menu)
                                     @if($menu->menu_type=="Lunch")
+                                    <a href="{{route('show',$menu->id)}}">
                                     <div class="item col-md-12">
                                         <div class="food-item">
                                             <img src="{{asset($menu->photo) }}" alt="">
@@ -81,6 +85,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                     @endif
                                     @endforeach
 
@@ -114,6 +119,7 @@
                                 <div id="owl-dinner" class="owl-carousel owl-theme">
                                     @foreach ($menus as $menu)
                                     @if($menu->menu_type=="Dinner")
+                                    <a href="{{route('show',$menu->id)}}">
                                     <div class="item col-md-12">
                                         <div class="food-item">
                                             <img src="{{asset($menu->photo) }}" alt="">
@@ -124,7 +130,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    </a>
                                    @endif
                                    @endforeach
 

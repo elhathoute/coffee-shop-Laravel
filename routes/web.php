@@ -19,6 +19,8 @@ Route::get('/menu',[CoffeshopController::class ,'menu'])->name('menu');
 
 Route::get('/contact', function () {return view('contact');})->name('contact');
 
+Route::get('/show/{id}',[CoffeshopController::class ,'show'])->name('show');
+
 Auth::routes();
 
 Route::resource('coffeShops', CoffeshopController::class);

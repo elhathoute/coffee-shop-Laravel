@@ -80,9 +80,15 @@ public function welcome(){
 
 
 
-    public function show(Coffeshop $coffeShop)
+    public function show($id_plat)
     {
-        return view('coffeShops.show',compact('coffeShop'));
+        $get_plat = DB::table('coffeshops')
+        ->leftJoin('types', 'coffeshops.type_plat', '=', 'types.id')
+        ->select('coffeshops.*', 'types.nom as nom_plat')
+        ->where('coffeshops.id',$id_plat)
+        ->get();
+
+         return view('show',['get_plat'=>$get_plat]);
     }
 
     public function edit(Coffeshop $coffeShop)
