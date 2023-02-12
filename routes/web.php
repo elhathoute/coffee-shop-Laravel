@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 // use App\Http\Controllers\StaticController;
 
-//  use App\Http\Controllers\PostController;
+ use App\Http\Controllers\UserController;
 
 
 
@@ -28,7 +28,9 @@ Route::resource('coffeShops', CoffeshopController::class);
 
 Route::get('/home', [CoffeshopController::class, "index"])->name("home");
 
+Route::get('users/profile', [UserController::class, "edit"])->name("users.edit-profile");
 
+Route::put('users/{user}',[UserController::class, "update"])->name("users.update-profile");
 // Route::get('/store/{category?}/{item?}', function ($category=null,$item=null) {
 //     if(isset($category)){
 //         if(isset($item)){

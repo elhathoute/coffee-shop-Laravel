@@ -26,7 +26,7 @@
                 </div> --}}
             </div>
         </div>
-
+<div class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr class="bg-secondary text-white">
@@ -55,7 +55,7 @@
                             class="border border-dark"
                             src="{{asset($coffeShop->photo) }}" alt="" srcset=""></td>
                         <td>{{ $coffeShop->prix }}</td>
-                        <td>{{ $coffeShop->description }}</td>
+                        <td title={{$coffeShop->description}}>{{ substr($coffeShop->description,0,20) }}</td>
                         @if(!empty( $coffeShop->nom_plat))
                         <td >{{ $coffeShop->nom_plat }}</td>
                         <td >{{ $coffeShop->menu_type }}</td>
@@ -78,6 +78,7 @@
                     @endforeach
             </tbody>
         </table>
+    </div>
         {!! $coffeShops->links('pagination::bootstrap-5') !!}
     </div>
 

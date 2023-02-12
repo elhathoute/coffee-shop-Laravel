@@ -40,7 +40,7 @@
                                             <div class="price">{{($menu->prix)}}DH</div>
                                             <div class="text-content">
                                                 <h4> {{($menu->nom)}}</h4>
-                                                <p> {{($menu->description)}}...</p>
+                                                <p title="{{$menu->description}}"> {{(substr($menu->description,0,20))}}...</p>
                                             </div>
 
                                         </div>
@@ -81,7 +81,8 @@
                                             <div class="price">{{$menu->prix }}DH</div>
                                             <div class="text-content">
                                                 <h4>{{$menu->nom }}</h4>
-                                                <p>{{$menu->description }}...</p>
+                                                <p title="{{$menu->description}}"> {{(substr($menu->description,0,20))}}...</p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +127,8 @@
                                             <div class="price">{{$menu->prix}}DH</div>
                                             <div class="text-content">
                                                 <h4>{{$menu->nom }}</h4>
-                                                <p> {{$menu->dsecription}}...</p>
+                                                <p title="{{$menu->description}}"> {{(substr($menu->description,0,20))}}...</p>
+
                                             </div>
                                         </div>
                                     </div>

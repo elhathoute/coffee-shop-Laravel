@@ -99,7 +99,7 @@ public function welcome(){
 
     public function update(Request $request,Coffeshop $coffeShop)
     {
-
+      
         $request->validate([
             'nom' => 'required',
             'photo' => 'nullable',

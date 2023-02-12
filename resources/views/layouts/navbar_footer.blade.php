@@ -47,7 +47,7 @@
                         @endguest
                         @auth
                         @if(Auth::user()->role==1)
-                        <li><a ><i class="fa fa-user"></i>  {{Auth::user()->name}}</a></li>
+                        <li><a href="{{route('users.edit-profile') }}"><i class="fa fa-user"></i>  {{Auth::user()->name}}</a></li>
                         <li><a  href="{{route('home')}}">Dashboard</a></li>
 
                         @else
