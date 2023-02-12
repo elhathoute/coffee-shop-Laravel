@@ -9,7 +9,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>Our Menus</h1>
-                    <p>Curabitur at dolor sed felis lacinia ultricies sit amet vel sem. Vestibulum diam leo, sodales tempor lectus sed, varius gravida mi.</p>
+                    <p>
+                        Dans l’atmosphère particulière du Cuistot Traditionnel à la fois chaleureuse et décontractée, le choix s’offre à vous.
+
+Nous associons en effet les grands classiques de l’art culinaire marocain et authentique, le tout fait maison avec des ingrédients de qualité choisis méticuleusement.
+                    </p>
                 </div>
             </div>
         </div>

@@ -26,11 +26,11 @@ Auth::routes();
 Route::resource('coffeShops', CoffeshopController::class);
 
 
-Route::get('/home', [CoffeshopController::class, "index"])->name("home");
+Route::get('/home', [CoffeshopController::class, "index"])->name("home")->middleware('user-role');
 
-Route::get('users/profile', [UserController::class, "edit"])->name("users.edit-profile");
+Route::get('users/profile', [UserController::class, "edit"])->name("users.edit-profile")->middleware('user-role');
 
-Route::put('users/{user}',[UserController::class, "update"])->name("users.update-profile");
+Route::put('users/{user}',[UserController::class, "update"])->name("users.update-profile")->middleware('user-role');;
 // Route::get('/store/{category?}/{item?}', function ($category=null,$item=null) {
 //     if(isset($category)){
 //         if(isset($item)){

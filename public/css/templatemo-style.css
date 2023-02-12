@@ -546,7 +546,7 @@ section.our-blog {
 
 section.sign-up {
 	padding: 80px 0px;
-	background-image: url(../img/signup-bg.jpg);
+	background-image: url(../img/restaurant-le-jasmine-le-doge-casablanca-slide-11A.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -562,14 +562,16 @@ section.sign-up {
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
-	color: #fff;
+	color: #eaeff1;
+
 }
 
 .sign-up button {
 	margin-left: -30px;
 	display: inline-block;
 	background-color: transparent;
-	color: #fff!important;
+	color: #050000!important;
+    background-color: white;
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 500;
