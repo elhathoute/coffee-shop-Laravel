@@ -164,15 +164,17 @@ Nous associons en effet les grands classiques de l’art culinaire marocain et a
                         <img src="img/book_left_image.jpg" alt="">
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     <div class="right-info">
                         <h4>Reservation</h4>
-                        <form id="form-submit" action="" method="get">
+                        <form id="form-reservation" method="POST" action="{{route('reservation')}}" >
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <fieldset>
-                                        <select required name='day' onchange='this.form.()'>
-                                            <option value="">Select day</option>
+                                        <select required name='day' id='day'>
+                                            <option value="" disabled>Select day</option>
                                             <option value="Monday">Monday</option>
                                             <option value="Tuesday">Tuesday</option>
                                             <option value="Wednesday">Wednesday</option>
@@ -185,8 +187,8 @@ Nous associons en effet les grands classiques de l’art culinaire marocain et a
                                 </div>
                                 <div class="col-md-6">
                                     <fieldset>
-                                        <select required name='hour' onchange='this.form.()'>
-                                            <option value="">Select hour</option>
+                                        <select required name='hour' id='hour'>
+                                            <option value="" disabled>Select hour</option>
                                             <option value="10-00">10:00</option>
                                             <option value="12-00">12:00</option>
                                             <option value="14-00">14:00</option>
@@ -199,39 +201,52 @@ Nous associons en effet les grands classiques de l’art culinaire marocain et a
                                 </div>
                                 <div class="col-md-6">
                                     <fieldset>
-                                        <input name="name" type="name" class="form-control" id="name" placeholder="Full name" required="">
+                                        <input name="full_name"  type="name" class="form-control" id="full_name" placeholder="Full name" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-md-6">
                                     <fieldset>
-                                        <input name="phone" type="phone" class="form-control" id="phone" placeholder="Phone number" required="">
+                                        <input name="phone"  type="phone" class="form-control" id="phone" placeholder="Phone number" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-md-6">
                                     <fieldset>
-                                        <select required class="person" name='persons' onchange='this.form.()'>
-                                            <option value="">How many persons?</option>
-                                            <option value="1-Person">1 Person</option>
-                                            <option value="2-Persons">2 Persons</option>
-                                            <option value="3-Persons">3 Persons</option>
-                                            <option value="4-Persons">4 Persons</option>
-                                            <option value="5-Persons">5 Persons</option>
-                                            <option value="6-Persons">6 Persons</option>
+                                        <select required class="person" name='personne' id='personne'>
+                                            <option value="" disabled>How many persons?</option>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 Persons</option>
+                                            <option value="3">3 Persons</option>
+                                            <option value="4">4 Persons</option>
+                                            <option value="5">5 Persons</option>
+                                            <option value="6">6 Persons</option>
                                         </select>
                                     </fieldset>
                                 </div>
                                 <div class="col-md-6">
                                     <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Book Table</button>
+                                        <button type="submit" id="form-submit-reservation" class="btn">Book Table</button>
                                     </fieldset>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    document.getElementById('form-reservation').addEventListener('submit', function() {
+  Swal.fire({
+    title: 'Reservation',
+    text: 'successfully',
+    icon: 'success',
+    confirmButtonText: 'Ok'
+  });
+});
+</script>
 
 
 @endsection

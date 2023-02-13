@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\CoffeshopController;
+
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservationController;
 // use App\Http\Controllers\StaticController;
 
  use App\Http\Controllers\UserController;
@@ -20,6 +22,8 @@ Route::get('/menu',[CoffeshopController::class ,'menu'])->name('menu');
 Route::get('/contact', function () {return view('contact');})->name('contact');
 
 Route::get('/show/{id}',[CoffeshopController::class ,'show'])->name('show');
+
+Route::post('/reservation',[ReservationController::class ,'reservation'])->name('reservation');
 
 Auth::routes();
 
