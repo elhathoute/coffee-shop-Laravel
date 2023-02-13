@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
+  public function index(){
+    $reservations = DB::table('reservations')
+    ->select('reservations.*')->paginate(5);
+
+ return view('reservations.index', compact('reservations'));
+  }
+
     public function reservation(Request $request){
        $reservation= $request->validate([
             'day' => 'required',

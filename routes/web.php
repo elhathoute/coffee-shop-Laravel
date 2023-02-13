@@ -31,6 +31,7 @@ Route::resource('coffeShops', CoffeshopController::class);
 
 
 Route::get('/home', [CoffeshopController::class, "index"])->name("home")->middleware('user-role');
+Route::get('/reservation', [ReservationController::class, "index"])->name("reservation")->middleware('user-role');
 
 Route::get('users/profile', [UserController::class, "edit"])->name("users.edit-profile")->middleware('user-role');
 

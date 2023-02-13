@@ -18,9 +18,6 @@ class CoffeshopController extends Controller
             ->select('coffeshops.*', 'types.nom as nom_plat')->paginate(5);
 
          return view('coffeShops.index', compact('coffeShops'));
-
-
-        ;
     }
 public function welcome(){
         $menu_type_cheap = DB::table('coffeshops')
@@ -99,7 +96,7 @@ public function welcome(){
 
     public function update(Request $request,Coffeshop $coffeShop)
     {
-      
+
         $request->validate([
             'nom' => 'required',
             'photo' => 'nullable',

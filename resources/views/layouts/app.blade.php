@@ -36,7 +36,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto mt-2">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -50,9 +50,15 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                            <li class="nav-item"><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>
+                            <li class="nav-item "><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>
                         @else
-                            <li class="nav-item dropdown">
+                        <li class="nav-item mb-1 text-center mx-4 bg-white border border-1 border-dark rounded-3 "><a class="nav-link" href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home </a></li>
+
+                        <li class="nav-item"><a class="nav-link text-center mb-1 mx-4 bg-white border border-1 border-dark rounded-3" href="{{ route('home') }}"> <i class="fa fa-cutlery"></i> Plates</a></li>
+                        <li class="nav-item"><a class="nav-link text-center mb-1 mx-4 bg-white border border-1 border-dark rounded-3" href="{{ route('reservation') }}"><i class="fa fa-tasks"></i> Reservations</a></li>
+
+                            <li class="nav-item dropdown mb-1 text-center mx-4 bg-white border border-1 border-dark rounded-3">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -60,13 +66,13 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{route('users.edit-profile') }}">
-                                        My Profile
+                                        <i class="fa fa-user"></i> My Profile
                                       </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                         <i class="fa fa-sign-out"></i> {{ __('Logout') }}
                                     </a>
 
 
@@ -75,7 +81,6 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('welcome') }}">Home</a></li>
 
                         @endguest
                     </ul>
